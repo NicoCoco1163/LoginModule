@@ -8,10 +8,12 @@ const path = require('path');
 
 const alias = require('rollup-plugin-alias');
 const buble = require('rollup-plugin-buble');
-const cjs = require('rollup-plugin-commonjs');
+const commonjs = require('rollup-plugin-commonjs');
 const node = require('rollup-plugin-node-resolve');
 const replace = require('rollup-plugin-replace');
-
+const postcss = require('rollup-plugin-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 const {name: moduleName, version, author} = require('./package.json');
 const aliases = require('./alias');
@@ -63,9 +65,17 @@ function genConfig(name) {
         // external: opts.external || [],
         plugins: [
             node(),
-            buble(),
             alias(Object.assign({}, opts.alias, aliases)),
-            cjs()
+            commonjs(),
+            postcss({
+                plugins: [
+                    autoprefixer(),
+                    cssnano({
+                        preset: 'advanced'
+                    })
+                ]
+            }),
+            buble()
         ]
     };
 
