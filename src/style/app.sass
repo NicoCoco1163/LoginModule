@@ -1,0 +1,181 @@
+@import './var.sass';
+    
+body
+    font: 400 16px/1.4 -apple-system,BlinkMacSystemFont,PingFangSC-Light,Helvetica Neue,Hiragino Sans GB,arial,Microsoft YaHei UI,Microsoft YaHei,simsun,sans-serif
+    background-color: #f7f7f7
+    -ms-text-size-adjust: 100%
+    -webkit-text-size-adjust: 100%
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    overflow-y: auto
+    overflow-x: hidden
+
+.login-module
+    display: inline-block
+    width: 420px
+    max-width: 100%
+    vertical-align: middle
+
+    h3, p
+        color: $FONT_COLOR_PARIMARY
+        font-weight: normal
+        margin: 0 0 .5em 0
+
+    a
+        color: $FONT_COLOR_SECOND
+        font-size: 12px
+        line-height: 24px
+        text-decoration: none
+        display: inline-block
+
+        &:hover
+            text-decoration: underline
+
+    input
+        font-size: 16px
+        line-height: 32px
+        width: 100%
+        padding: .25em .5em
+        border-radius: $BORDER_RADIUS
+        outline: 0
+        border: 0
+        background-color: #eff4f6
+        box-sizing: border-box
+
+    .float-right
+        float: right
+
+    .input
+        margin-bottom: .5em
+
+        &-name
+            color: $FONT_COLOR_SECOND
+            font-size: 12px
+            margin-bottom: 4px
+
+        &-button
+            padding-top: 20px
+            margin-bottom: 36px
+
+    .wrapper
+        background-color: $WHITE
+        border: 1px solid $BORDER_COLOR
+        box-shadow: 2px 2px 48px rgba(0,0,0,.08)
+        text-align: left
+        overflow: hidden
+        box-sizing: border-box
+
+        &-link
+            color: $FONT_COLOR_SECOND
+            font-size: 14px
+            padding: 16px
+
+            a
+                font-weight: bold
+                color: $BUTTON_BG_COLOR
+
+    label[role=checkbox]
+        padding-top: 8px
+        display: inline-block
+        
+        .checkbox-input
+            vertical-align: top
+            display: inline-block
+            position: relative
+            border: 1px solid $BORDER_COLOR
+            border-radius: 2px
+            box-sizing: border-box
+            margin-top: 3px
+            margin-right: 3px
+            width: 18px
+            height: 18px
+            background-color: $WHITE
+            z-index: 1
+            transition: border-color .25s cubic-bezier(.71,-.46,.29,1.46), background-color .25s cubic-bezier(.71,-.46,.29,1.46)
+
+            &:hover
+                border-color: $BUTTON_BG_COLOR
+
+            &:after
+                content: ''
+                border: 1px solid $WHITE
+                border-left: 0
+                border-top: 0
+                height: 8px
+                width: 5px
+                left: 5px
+                top: 2px
+                position: absolute
+                transform: rotate(45deg) scaleY(0)
+                transition: transform .15s cubic-bezier(.71,-.46,.88,.6) .05s
+                transform-origin: center
+                box-sizing: content-box
+
+        .checkbox-label
+            color: $FONT_COLOR_SECOND
+            font-size: 12px
+            line-height: 24px
+            vertical-align: top
+            display: inline-block
+
+        input[type=checkbox]
+            display: none
+
+        input[type=checkbox]:checked ~ .checkbox-input
+            border-color: $BUTTON_BG_COLOR
+            background-color: $BUTTON_BG_COLOR
+
+            &:after
+                transform: rotate(45deg) scaleY(1)
+
+    .button
+        color: $WHITE
+        font-size: 16px
+        line-height: 24px
+        padding: 8px 32px
+        border-radius: $BORDER_RADIUS
+        background-color: $BUTTON_BG_COLOR
+        cursor: pointer
+
+    &__wrapper
+        position: fixed
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        text-align: center
+
+        &:after
+            content: ''
+            display: inline-block
+            height: 100%
+            width: 0
+            vertical-align: middle
+
+    .title
+        padding: 18px 36px 6px
+        position: relative
+
+        &:after
+            content: ''
+            height: 0
+            border-top: 1px solid $BORDER_COLOR
+            margin-left: -36px
+            margin-right: -36px
+            overflow: hidden
+            position: absolute
+            left: 0
+            right: 0
+            bottom: 0
+
+        h3
+            font-size: 24px
+
+    .content
+        padding: 20px 36px 30px
+
+    .meta
+        height: 0
+        border-top: 1px solid $BORDER_COLOR
+        margin-bottom: 4px
+        position: relative

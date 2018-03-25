@@ -4,10 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="./dist/login-module.js"></script>
+    <title>Login Module</title>
+    <script src="dist/login-module.js"></script>
+    <link rel="stylesheet" href="dist/login-module.css">
 </head>
 <body>
-    
+    <div class="login-module__wrapper">
+        <div class="login-module">
+            <!-- Login -->
+            <div class="login">
+                <div class="wrapper">
+                    <div class="title">
+                        <h3>Login</h3>
+                    </div>
+                    <div class="content">
+                        <div class="input">
+                            <div class="input-name">EMAIL</div>
+                            <input type="text">
+                        </div>
+                        <div class="input">
+                            <div class="input-name">PASSWORD</div>
+                            <input type="text">
+                        </div>
+                        <div class="input-button">
+                            <label role="checkbox">
+                                <input type="checkbox">
+                                <div class="checkbox-input"></div>
+                                <div class="checkbox-label">Remember me</div>
+                            </label>
+                            <div class="button float-right">LOGIN</div>
+                        </div>
+                        <div class="meta"></div>
+                        <div class="input-link">
+                            <a href="">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper-link">
+                    Don't have an account? <a href="">Register Now</a>
+                </div>
+            </div>
+            <!-- SignUp -->
+            <div class="sign-up"></div>
+            <!-- FindPassword -->
+            <div class="find-password"></div>
+        </div>
+    </div>
 </body>
 </html>

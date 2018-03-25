@@ -12,6 +12,8 @@ const commonjs = require('rollup-plugin-commonjs');
 const node = require('rollup-plugin-node-resolve');
 const replace = require('rollup-plugin-replace');
 const postcss = require('rollup-plugin-postcss');
+const serve = require('rollup-plugin-serve');
+const livereload = require('rollup-plugin-livereload');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 
@@ -68,6 +70,8 @@ function genConfig(name) {
             alias(Object.assign({}, opts.alias, aliases)),
             commonjs(),
             postcss({
+                // not work in build
+                extract: true,
                 plugins: [
                     autoprefixer(),
                     cssnano({
@@ -84,6 +88,20 @@ function genConfig(name) {
         config.plugins.push(replace({
             'process.env.NODE_ENV': JSON.stringify(opts.env)
         }));
+    }
+
+    if (process.env.NODE_ENV === 'development') {
+        config.plugins = config.plugins.concat([
+            serve({
+                open: true,
+                contentBase: '',
+                historyApiFallback: false
+            }),
+            livereload({
+                watch: 'dist',
+                verbose: true
+            })
+        ]);
     }
 
     return config;
